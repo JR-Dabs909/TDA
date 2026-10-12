@@ -50,6 +50,15 @@ by lowest variant price: `tier:good` (<$15), `tier:better` ($15–29.99),
 13. Live, irreversible, or spend-affecting actions (installing paid apps, deleting
     products, pausing/resuming ad spend, submitting applications) get explicit
     owner go-ahead even when the owner has pre-authorized the general direction.
+14. **Subagents draft and recommend; only the main/liaison session executes.**
+    Each of the six role files already says this for itself ("work read-only
+    unless the main session hands you a write", "draft only", "report first"),
+    but it's restated here as the standing architecture: a subagent returns
+    exact proposed changes (IDs, fields, old → new values, or a ready-to-send
+    draft) rather than calling a Shopify/Metricool/CJ write tool directly. The
+    liaison reviews and applies the write itself. This was violated earlier in
+    one session (subagents were allowed to write directly) — don't repeat that;
+    treat it as the one-off exception it was, not a precedent.
 
 ## Known platform quirks worth remembering
 
