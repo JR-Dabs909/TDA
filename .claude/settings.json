@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Shopify__graphql_mutation",
+      "mcp__Shopify__update-product",
+      "mcp__Shopify__bulk-update-product-status",
+      "mcp__Shopify__create-product",
+      "mcp__Shopify__create-collection",
+      "mcp__Shopify__update-collection",
+      "mcp__Shopify__add-to-collection",
+      "mcp__Shopify__set-inventory",
+      "mcp__Shopify__create-discount"
+    ]
+  }
+}
