@@ -20,37 +20,32 @@ by lowest variant price: `tier:good` (<$15), `tier:better` ($15–29.99),
 2. **Organic only.** No paid ad campaigns on any platform without the owner
    explicitly asking for that specific campaign first. (Established after a TikTok
    paid campaign was found running against this rule and had to be paused.)
-3. **AI-disclosure labels on synthetic/AI-avatar video content are mandatory,
-   always.** This is a content-judgment call Claude makes itself, not a tool
-   permission — it cannot be toggled off by owner request, by editing
-   `settings.json`, or by financial pressure. If disclosure is a blocker, the
-   answer is to not use AI-avatar content, not to hide the label.
-4. **CJ Dropshipping is the only fulfillment supplier.** Never wire up a second
+3. **CJ Dropshipping is the only fulfillment supplier.** Never wire up a second
    supplier (e.g. Zendrop) without explicit owner sign-off, even if an app is
    already installed.
-5. **Every new sales channel routes through Shopify as the single order source**
+4. **Every new sales channel routes through Shopify as the single order source**
    back to CJ (e.g. via Shopify Marketplace Connect, or Shopify's own channel
    apps). Never connect CJ directly to a channel.
-6. **Nothing goes live before it's ready.** Don't let products auto-publish
+5. **Nothing goes live before it's ready.** Don't let products auto-publish
    unreviewed to a channel just because an app happens to be installed —
    especially a dormant one that could go live later (see Amazon Channel - CED).
-7. **No new ad creative/images** unless the owner asks.
-8. **Never bypass a CAPTCHA/bot-verification wall.** Ask the owner to clear it
+6. **No new ad creative/images** unless the owner asks.
+7. **Never bypass a CAPTCHA/bot-verification wall.** Ask the owner to clear it
    themselves in their own browser.
-9. **Tax/financial identifiers (W9, SSN/EIN, etc.) and identity/proof-of-address
+8. **Tax/financial identifiers (W9, SSN/EIN, etc.) and identity/proof-of-address
    documents are the owner's to submit directly** — never handled on their behalf.
-10. **Flag any paid app/subscription before installing it.** Free apps can be
+9. **Flag any paid app/subscription before installing it.** Free apps can be
     installed directly when doing operational work the owner has authorized.
-11. **Don't ask questions a standing rule or prior decision already answers.**
+10. **Don't ask questions a standing rule or prior decision already answers.**
     Check this file and recent state first.
-12. **Watch weekly usage budget.** Don't fan out large parallel multi-agent
+11. **Watch weekly usage budget.** Don't fan out large parallel multi-agent
     "do everything" dispatches without regard for remaining budget — that has
     burned through a full week's usage before. Prefer scoped, high-value actions;
     save big multi-agent audits for when budget is fresh.
-13. Live, irreversible, or spend-affecting actions (installing paid apps, deleting
+12. Live, irreversible, or spend-affecting actions (installing paid apps, deleting
     products, pausing/resuming ad spend, submitting applications) get explicit
     owner go-ahead even when the owner has pre-authorized the general direction.
-14. **Subagents draft and recommend; only the main/liaison session executes.**
+13. **Subagents draft and recommend; only the main/liaison session executes.**
     Each of the six role files already says this for itself ("work read-only
     unless the main session hands you a write", "draft only", "report first"),
     but it's restated here as the standing architecture: a subagent returns
