@@ -1,8 +1,8 @@
 # Haven & Hound — Status Snapshot
 
-_Last updated: 2026-10-12, reconstructed from a disconnected bridge session
-that ran out of weekly usage credits mid-audit (resets 2026-10-13 ~12:00 PM).
-Update this file as state changes instead of letting it live only in chat._
+_Last updated: 2026-10-13, after the TikTok Shop setup audit completed
+post-reset. Update this file as state changes instead of letting it live only
+in chat._
 
 ## Store
 Shopify Basic plan, `havenandhounds.myshopify.com`. Support email
@@ -69,14 +69,43 @@ history yet — not broken).
   it. 7 products passed TikTok review: Logo Tee, Crest Hoodie, Fleece Hoodie,
   Beanie, ChillPad, ShedAway, TrailVest. Shop itself is live/functional (30
   active listings at last check), under normal new-seller probation limits.
-  Blocked on two owner-only items before full capability:
-  1. **Proof of address** — rejected Sep 27 (needs bank statement/lease/
-     utility bill in owner's legal name+address, resubmitted via Seller
-     Center → Settings → Qualification Center). No confirmation email exists
-     either way since the rejection — owner needs to check that page directly,
-     it wouldn't navigate via automated clicks.
-  2. **W9 tax info** — confirmed still outstanding (0/1) on the Seller Center
-     dashboard. Owner-only, not something Claude submits.
+  **2026-10-13 full setup audit: three separate, stacked problems all have to
+  clear before a real sale can happen — not one bug.** Prioritized order:
+  1. **Proof of address** (owner-only) — rejected Sep 27, needs bank statement/
+     lease/utility bill in owner's legal name+address, resubmitted via Seller
+     Center → Settings → Qualification Center. No confirmation email exists
+     either way — owner needs to check that page directly.
+  2. **W9 tax info** (owner-only) — still outstanding (0/1) on the Seller
+     Center dashboard.
+  3. **NEW, unverified — possible third gate:** Pet Supplies may be one of
+     TikTok's gated categories requiring separate category-level approval
+     beyond the account-level documents above. Nobody has checked this
+     specifically yet. Owner check: Seller Center → Account Health →
+     Category Qualifications.
+  4. **NEW, unverified — payout account:** whether a bank account is actually
+     linked in Shop → Payments is unconfirmed. If never completed, a sale
+     could go through and simply never pay out, silently. Owner check: Shop
+     settings → Payments.
+  5. **NEW — highest-impact finding, confirmed via TikTok's own help docs:**
+     even once qualified, there is likely **no purchase path on any video
+     posted so far.** Product tagging happens natively in the TikTok app at
+     post time; tagged links do not carry over from organic posting tools,
+     and there's no evidence Metricool can attach TikTok Shop product tags
+     through its publishing API. Practical read: every video published via
+     Metricool so far almost certainly has zero product link — no in-app way
+     to buy regardless of content volume. Owner check: Shoppable video
+     section for a retroactive "Link Products" tool (may only cover videos
+     from the last 30 days) — unconfirmed, needs owner to look and report
+     back.
+  6. **Shipping carrier mapping — confirmed unconfigured** (seen directly in
+     an owner screenshot). Breaks tracking sync to TikTok even on orders that
+     do go through. Needs owner to open Fulfillment → Carrier Mapping; Claude
+     drafts the exact Shopify-carrier → TikTok-carrier pairing once open.
+  7. **Shipping handling-time / policy pages** — unconfirmed whether these
+     were customized or left at TikTok's bare defaults. Lower priority.
+  8. **Duplicate pixel + duplicate catalog** (`shopify1` 429 items /
+     `shopify2` 1,042 items, both 100% TikTok-approved) — confirmed data
+     hygiene only, not a sales blocker. Lowest priority.
 - **Amazon:** see Open Issues above (dormant channel, not connected).
 - **New-channel plan (growth research, nothing purchased/applied for):** eBay
   first (net $4.29/unit on the $19.99 example, $0 fee, policy explicitly
