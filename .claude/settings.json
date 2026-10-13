@@ -9,7 +9,9 @@
       "mcp__Shopify__update-collection",
       "mcp__Shopify__add-to-collection",
       "mcp__Shopify__set-inventory",
-      "mcp__Shopify__create-discount"
+      "mcp__Shopify__create-discount",
+      "mcp__Metricool_Social_Media_Management__createScheduledPost",
+      "mcp__Metricool_Social_Media_Management__updateScheduledPost"
     ]
   }
 }
