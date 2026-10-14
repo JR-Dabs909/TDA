@@ -1,8 +1,80 @@
 # Haven & Hound — Status Snapshot
 
-_Last updated: 2026-10-13, after the TikTok Shop setup audit completed
-post-reset. Update this file as state changes instead of letting it live only
-in chat._
+_Last updated: 2026-10-14, after a full 7-agent store audit (catalog, operations,
+finance, marketing, growth, customer-service, media QC) plus same-day fixes.
+Update this file as state changes instead of letting it live only in chat._
+
+## 2026-10-14 full audit — headline findings and fixes applied
+
+**Fixed today (cloud session, confirmed live):**
+- ShellNest, TagTrail, PawTrim handles rewritten to remove cat/kitten references
+  (text-level dogs-only fix; photos still unverified — see media QC below).
+- FAQ page and Contact page corrected: free-shipping threshold was wrongly
+  listed as $50 (real rule is $35); Contact page was missing the phone number.
+- "Collars, Tags & Leashes" smart-collection rule fixed (was matching "Lead" only,
+  missed "Leash" — added, so DualGrip and PlumLoop leashes are now included).
+- TrailVest and Trailside Poop Bag Dispenser removed from the "Ships Fast from
+  the US" collection — both honestly disclose 7-14 day international shipping
+  in their own copy, directly contradicting that collection's promise.
+- 4 unverified health/behavioral-claim rewrites applied: SmartSight Timed Pet
+  Feeder, QuietPaws Nail Grinder, Calming Cuddler Cozy Donut Bed (copy only,
+  product names unchanged), and PawPace (renamed from "...Anti-Choking..." to
+  "PawPace Slow Feeder Dog Bowl" — body copy was already clean, only the title
+  carried the claim).
+- 1 of 3 active, undisclosed Meta ad campaigns paused ("Haven & Hound," $20/day).
+  **"First Contact" ($10/day) and the campaign carrying the false 20-25%
+  discount-claim ads ($5/day) are STILL ACTIVE** — Adspirer's tool quota ran out
+  mid-fix (resets Nov 3). Needs an alternate pause path (Meta Business Suite
+  directly, or retry once quota resets) — this is not resolved, flag every
+  session until it is.
+
+**Confirmed NOT fixable from a cloud session (needs the browser-control
+session or the owner directly) — see the 2026-10-14 browser handoff:**
+- Shipping/Refund/Terms/Privacy policy page text (wrong $50 threshold on
+  Shipping Policy, broken misspelled mailto links on Refund Policy, unfilled
+  "[LINK]"/"[NOTE TO MERCHANT]" template placeholders on Terms of Service, a
+  dead opt-out link on Privacy Policy) — blocked by a missing
+  `write_legal_policies` API scope on this session's token, confirmed via a
+  direct mutation attempt, not assumed.
+- All visual/photo QC (RollQuest's baked-in "PROMOTE DOG'S HEALTH" image claim,
+  re-verifying ShellNest/TagTrail/PawTrim's actual photos, a broader pass) —
+  cdn.shopify.com is network-blocked from this cloud environment, confirmed 4
+  independent ways across two separate audit passes.
+- Zendrop billing status, AppLovin spend, Pinterest ad verification, Google
+  Merchant Center domain-verification status, Zeely credit balance — none
+  reachable via any tool/connector in this session.
+
+**New findings, not yet actioned (need an owner decision):**
+- **Printify confirmed as a live, actively-used second fulfillment supplier**
+  for the apparel/merch line (5 of 7 Shopify delivery profiles are
+  Printify-specific, real products route through it) — never disclosed before
+  this audit, hits the CJ-only standing rule directly. Needs a decision: known
+  exception, or needs winding down.
+- **Collective** (Shopify's own merchant-to-merchant network) and **Avada
+  Product Feed** also found installed with broad write scopes, previously
+  undocumented, not wired to any channel yet — same category of risk as
+  Printify, lower urgency.
+- **Microsoft Copilot and Meta AI and Muse are live, auto-publishing sales
+  channels** with the entire catalog (103/103) on each, zero review gate —
+  unlike Amazon-CED (dormant), these are actively firing right now. Not yet
+  reviewed or pulled back.
+- **Phantom inventory confirmed systemic**, not just ShellNest/CordCozy: 77-85
+  of ~98 active products show implausible thousands-to-millions "available"
+  quantities, because no dedicated US-warehouse location exists in Shopify to
+  cap it against real CJ stock. Needs a structural fix (new location + real
+  per-SKU caps) — sign-off needed before touching it, given the scope.
+- **5 of the 6 products previously logged below as "blocked, owner decision
+  pending" are actually ACTIVE** (Summit, Night-Trail, PureFlow, Orthopedic,
+  and "LED Luminous" which is now live as NightGlow Rechargeable LED Dog
+  Collar) — all with honest (not false) slow-shipping disclosure, but this
+  means either the decision happened off-record or they went live without the
+  review this file says is still pending. Only CalmLick remains in draft.
+  34 total active products (not 6) carry this same honest
+  international/slow-shipping copy — see the full audit file for the list.
+- **Zendrop no longer appears in the installed-apps list at all** (18 apps,
+  confirmed complete) — may have been uninstalled, but the "usage charges"
+  claim below is unverified either way; Shopify's Billing page isn't reachable
+  by any tool here.
 
 ## Store
 Shopify Basic plan, `havenandhounds.myshopify.com`. Support email
@@ -95,10 +167,27 @@ history yet — not broken).
   (seller-of-record requirement is structurally hard to satisfy with CJ
   fulfillment; suspension risk). All route through Shopify Marketplace Connect,
   Shopify stays the single order source.
-- **Domain:** havenandhound.com / havenandhounds.com / shophavenandhound.com
-  all confirmed taken by third parties. Recommended: buy gethavenandhound.com
-  (~$16/yr via Shopify) and point it at the existing myshopify.com domain —
-  no separate store is justified. Not purchased yet, awaiting owner go-ahead.
+- **Domain: purchased 2026-10-14 — havenandhound.store ($9/yr, cheaper and a
+  better brand match than the originally recommended gethavenandhound.com).**
+  Needed for Google Merchant Center domain verification (see Google &
+  YouTube channel below). **Not yet confirmed set as primary domain** —
+  Shopify's `shop.primaryDomain` still showed `havenandhounds.myshopify.com`
+  as of 2026-10-14; no API exists to list all connected domains to check this
+  further from a cloud session. Owner should confirm in Shopify Admin →
+  Settings → Domains.
+- **Google & YouTube channel: now installed and connected** (102/103 products
+  staged) — this was "pending" in an earlier version of this file. Whether
+  Merchant Center's domain verification is actually complete is unconfirmed
+  (no tool/API can check it) — needs a direct check on that screen.
+- **eBay: Marketplace Connect installed, eBay seller account connected**
+  (`havenandhound`), listing sync in progress as of 2026-10-14. 0/98 active
+  products have a UPC/GTIN/barcode populated — plan is to request a GTIN
+  exemption during eBay listing setup rather than fabricate barcodes.
+- **Walmart: on hold** — Walmart requires 2-day shipping with no lag-time
+  exemption for third-party-dropship sellers like CJ; CJ's own processing
+  time (1-6 days before even shipping) will likely miss that window
+  regularly. Same risk shape as the Amazon seller-of-record problem. Revisit
+  once eBay has an order/fulfillment track record.
 - **AppLovin:** already installed as a Shopify app (discovered, not previously
   tracked). Research into cost/fit/comparison to Meta/TikTok/Google was
   in progress when the bridge session ran out of usage credits — not
@@ -109,7 +198,19 @@ history yet — not broken).
   organic" → clarified "only organic"). A TikTok paid campaign ("Haven & Hound
   - Seat Belt Boost," $25 budget, $20 spent, 57 TikTok-reported "conversions"
   vs. 0 real Shopify orders — mistracked, not real sales) was found running
-  against this rule and has been paused.
+  against this rule and has been paused — **independently re-confirmed still
+  paused on 2026-10-14.**
+- **2026-10-14: a second, bigger, previously-undisclosed violation found.**
+  3 Meta (Facebook/Instagram) campaigns active since mid-September, $35/day
+  combined ($25+ spent, likely more — data was stale), on ad account
+  `1588260336332921`. One of the three campaigns also runs 2 ads with false
+  discount claims ("25% off"/"20% off" — only real codes are WELCOME10/
+  HAVEN10, both 10%). **1 of 3 campaigns paused same day ("Haven & Hound,"
+  $20/day); the other 2 ($10/day "First Contact" + the $5/day false-discount
+  campaign) are still ACTIVE** — pause tooling hit its quota mid-fix (resets
+  Nov 3). Needs completing via another path. The video creative for these ads
+  was produced through Zeely — contradicting the "no further credits spent"
+  line below; needs reconciling.
 - **Organic posting is live via Metricool** (confirmed schedule as of
   2026-10-12): founder note, LiftEase strap, this-or-that poll, StripeSnug
   sweater video, Aurora LED harness, BrightLoop reflective harness, PawStep
