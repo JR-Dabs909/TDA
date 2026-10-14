@@ -69,43 +69,23 @@ history yet — not broken).
   it. 7 products passed TikTok review: Logo Tee, Crest Hoodie, Fleece Hoodie,
   Beanie, ChillPad, ShedAway, TrailVest. Shop itself is live/functional (30
   active listings at last check), under normal new-seller probation limits.
-  **2026-10-13 full setup audit: three separate, stacked problems all have to
-  clear before a real sale can happen — not one bug.** Prioritized order:
-  1. **Proof of address** (owner-only) — rejected Sep 27, needs bank statement/
-     lease/utility bill in owner's legal name+address, resubmitted via Seller
-     Center → Settings → Qualification Center. No confirmation email exists
-     either way — owner needs to check that page directly.
-  2. **W9 tax info** (owner-only) — still outstanding (0/1) on the Seller
-     Center dashboard.
-  3. **NEW, unverified — possible third gate:** Pet Supplies may be one of
-     TikTok's gated categories requiring separate category-level approval
-     beyond the account-level documents above. Nobody has checked this
-     specifically yet. Owner check: Seller Center → Account Health →
-     Category Qualifications.
-  4. **NEW, unverified — payout account:** whether a bank account is actually
-     linked in Shop → Payments is unconfirmed. If never completed, a sale
-     could go through and simply never pay out, silently. Owner check: Shop
-     settings → Payments.
-  5. **NEW — highest-impact finding, confirmed via TikTok's own help docs:**
-     even once qualified, there is likely **no purchase path on any video
-     posted so far.** Product tagging happens natively in the TikTok app at
-     post time; tagged links do not carry over from organic posting tools,
-     and there's no evidence Metricool can attach TikTok Shop product tags
-     through its publishing API. Practical read: every video published via
-     Metricool so far almost certainly has zero product link — no in-app way
-     to buy regardless of content volume. Owner check: Shoppable video
-     section for a retroactive "Link Products" tool (may only cover videos
-     from the last 30 days) — unconfirmed, needs owner to look and report
-     back.
-  6. **Shipping carrier mapping — confirmed unconfigured** (seen directly in
-     an owner screenshot). Breaks tracking sync to TikTok even on orders that
-     do go through. Needs owner to open Fulfillment → Carrier Mapping; Claude
-     drafts the exact Shopify-carrier → TikTok-carrier pairing once open.
-  7. **Shipping handling-time / policy pages** — unconfirmed whether these
-     were customized or left at TikTok's bare defaults. Lower priority.
-  8. **Duplicate pixel + duplicate catalog** (`shopify1` 429 items /
-     `shopify2` 1,042 items, both 100% TikTok-approved) — confirmed data
-     hygiene only, not a sales blocker. Lowest priority.
+  **2026-10-13 full setup audit found 8 stacked items blocking a real sale.
+  2026-10-14: owner reports all 8 resolved** (proof of address, W9, category
+  qualification, payments account linked, shoppable-video product tagging,
+  carrier mapping, shipping handling-time/policy pages, duplicate pixel/
+  catalog cleanup). This is owner-reported, not independently re-verified by
+  Claude — these items live behind TikTok's Seller Center login, which no
+  tool in the cloud session can reach; a browser-control session handled the
+  checks. **Caveat:** a live Shopify query on 2026-10-14 did not show TikTok
+  in the store's installed-app list, which doesn't match "connected" — this
+  may just be the wrong API (sales channels can live outside
+  `appInstallations`), but it's unconfirmed and worth a real check next time
+  anyone has TikTok Shop live in front of them.
+  Original list, for reference: proof of address, W9, a possible Pet
+  Supplies category gate, payout account linkage, TikTok Shop product
+  tagging not carrying over from Metricool's posting API, carrier mapping,
+  handling-time/policy pages, and duplicate pixel/catalog (`shopify1` 429
+  items / `shopify2` 1,042 items, cleanup only, never a blocker).
 - **Amazon:** see Open Issues above (dormant channel, not connected).
 - **New-channel plan (growth research, nothing purchased/applied for):** eBay
   first (net $4.29/unit on the $19.99 example, $0 fee, policy explicitly
