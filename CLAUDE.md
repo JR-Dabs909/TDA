@@ -9,7 +9,10 @@ don't make them re-answer questions a rule below already settles.
 
 **Pricing formula (exact):** each variant = max(3 × cost, (cost + real US
 shipping) / 0.65, $12.99), rounded up to `.99`. Cost = `inventoryItem.unitCost`.
-Must clear 25% margin after shipping; free shipping applies at $35+. Tier tags
+Must clear 25% margin after shipping; free shipping applies at $50+ (raised from
+$35 — the live automatic discount was already at $50 while most site copy still
+said $35; copy was corrected store-wide on 2026-10-18 to match the real cutoff).
+Tier tags
 by lowest variant price: `tier:good` (<$15), `tier:better` ($15–29.99),
 `tier:best` ($30+).
 
